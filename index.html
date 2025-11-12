@@ -13,14 +13,51 @@
       margin: 0;
       padding: 0;
     }
-    header {
-      background: #111;
-      padding: 20px;
-      font-size: 28px;
-      font-weight: bold;
+
+    /* --- Bannière --- */
+    .banner {
+      background: url("Images/polnareffland.png") center/cover no-repeat, linear-gradient(90deg, #111, #222);
+      padding: 60px 20px;
       color: #f5c542;
-      text-shadow: 2px 2px 4px #000;
+      text-shadow: 2px 2px 6px #000;
     }
+
+    .banner h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .search-bar {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-bar input {
+      width: 300px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px 0 0 8px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 10px 15px;
+      border: none;
+      background: #f5c542;
+      color: #111;
+      font-weight: bold;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .search-bar button:hover {
+      background: #ffe066;
+    }
+
+    /* --- Zone vidéos --- */
     .videos {
       display: flex;
       flex-wrap: wrap;
@@ -28,6 +65,7 @@
       gap: 20px;
       padding: 20px;
     }
+
     .video {
       background: #222;
       border-radius: 12px;
@@ -36,21 +74,25 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
       transition: transform 0.2s ease;
     }
+
     .video:hover {
       transform: scale(1.03);
     }
+
     iframe {
       width: 100%;
       height: 180px;
       border-radius: 8px;
       border: none;
     }
+
     .title {
       margin-top: 10px;
       font-size: 16px;
       font-weight: bold;
       color: #f5c542;
     }
+
     footer {
       background: #111;
       padding: 15px;
@@ -61,27 +103,49 @@
   </style>
 </head>
 <body>
-  <header>Polnareff Land</header>
 
-  <div class="videos">
-    <!-- 🔥 Copie ce bloc pour chaque vidéo YouTube -->
+  <!-- 🔥 Bannière avec titre et barre de recherche -->
+  <div class="banner">
+    <h1>🎧 Polnareff Land 🎬</h1>
+    <p>Site Decouverte Animes</p>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Rechercher une vidéo..." onkeyup="searchVideos()">
+      <button onclick="searchVideos()">🔍</button>
+    </div>
+  </div>
+
+  <!-- 🎥 Zone vidéos -->
+  <div class="videos" id="videosContainer">
     <div class="video">
       <iframe src="https://www.youtube.com/embed/FoVvpkMlTqM" allowfullscreen></iframe>
       <div class="title">Naruto épisode 1</div>
     </div>
 
     <div class="video">
-      <iframe src="https://www.youtube.com/embed/FIRb2OF0T1E&t=1074s" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/FIRb2OF0T1E" allowfullscreen></iframe>
       <div class="title">MHA épisode 1</div>
     </div>
-  </div>
 
-     <div class="video">
+    <div class="video">
       <iframe src="https://www.youtube.com/embed/FJ67z8TYVLk" allowfullscreen></iframe>
       <div class="title">Blue Lock épisode 1</div>
     </div>
   </div>
 
   <footer>© 2025 Polnareff Land</footer>
+
+  <script>
+    // 🔎 Petite fonction de recherche
+    function searchVideos() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const videos = document.querySelectorAll(".video");
+      videos.forEach(video => {
+        const title = video.querySelector(".title").textContent.toLowerCase();
+        video.style.display = title.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
+
 </body>
 </html>
