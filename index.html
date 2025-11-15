@@ -23,6 +23,32 @@
     text-align: center;
     border-bottom: 5px solid #2c3a4d;
   }
+<div id="player-container" style="
+  background:#fff;
+  max-width:800px;
+  margin:30px auto;
+  padding:15px;
+  border:1px solid #ccc;
+  border-radius:4px;
+">
+
+  <video id="videoPlayer" width="100%" style="border-radius:4px;">
+    <source src="ton_fichier.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
+
+  <!-- Contrôles -->
+  <div style="margin-top:10px; text-align:center;">
+    <button onclick="togglePlay()" style="padding:8px;">▶ / ⏸</button>
+    <input type="range" id="progressBar" value="0" min="0" max="100" 
+           oninput="seekVideo()" style="width:60%;">
+    <span id="timeDisplay">0:00 / 0:00</span>
+    <input type="range" id="volumeControl" min="0" max="1" step="0.05" 
+           onchange="setVolume(this.value)" style="width:80px;">
+    <button onclick="goFullscreen()" style="padding:8px;">⛶</button>
+  </div>
+
+</div>
 
   /* Barre de recherche */
   .search-bar {
@@ -138,6 +164,46 @@
 </style>
 </head>
 
+  <script>
+  const video = document.getElementById("videoPlayer");
+  const progressBar = document.getElementById("progressBar");
+  const timeDisplay = document.getElementById("timeDisplay");
+
+  function togglePlay() {
+    if (video.paused) video.play();
+    else video.pause();
+  }
+
+  video.addEventListener("timeupdate", () => {
+    const progress = (video.currentTime / video.duration) * 100;
+    progressBar.value = progress;
+
+    const current = formatTime(video.currentTime);
+    const total = formatTime(video.duration);
+    timeDisplay.textContent = `${current} / ${total}`;
+  });
+
+  function seekVideo() {
+    const time = (progressBar.value / 100) * video.duration;
+    video.currentTime = time;
+  }
+
+  function setVolume(v) {
+    video.volume = v;
+  }
+
+  function goFullscreen() {
+    if (video.requestFullscreen) video.requestFullscreen();
+  }
+
+  function formatTime(seconds) {
+    if (isNaN(seconds)) return "0:00";
+    const min = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60).toString().padStart(2, "0");
+    return `${min}:${sec}`;
+  }
+</script>
+
 <body>
 
 <header>Polnareff Land — Style Animeka</header>
@@ -227,3 +293,4 @@
 
 </body>
 </html>
+
