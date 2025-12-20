@@ -148,6 +148,50 @@
       color: #606770;
       border-top: 1px solid #ccd0d5;
     }
+
+    /* TikTok flottant pour mobile */
+    .tiktok-mobile {
+      display: none;           /* caché par défaut */
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff0050;     /* couleur TikTok */
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    /* Affichage uniquement sur petits écrans */
+    @media (max-width: 768px) {
+      .tiktok-mobile {
+        display: block;
+      }
+
+      /* Masquer le lien dans la sidebar */
+      .profile-link {
+        display: none;
+      }
+
+      /* Réorganiser la layout pour mobile */
+      .layout {
+        flex-direction: column;
+        margin: 10px;
+      }
+
+      .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .container {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
@@ -220,6 +264,11 @@
 
     </div>
   </div>
+
+  <!-- Bouton TikTok flottant pour mobile -->
+  <a href="https://www.tiktok.com/@roronoa.bled.art.95" target="_blank" class="tiktok-mobile">
+    TikTok
+  </a>
 
 </body>
 </html>
