@@ -1,2 +1,2 @@
 # polnarref-land
-Un prototype de site anime
+Repertoire de tout les sites animes gratuits !
