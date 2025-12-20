@@ -6,22 +6,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
+    /* ======================== */
+    /* Style général "années 2000-2010" */
+    /* ======================== */
     body {
       margin: 0;
       font-family: Tahoma, Verdana, Arial, sans-serif;
-      background: #e4e9f2;
+      background: #d0d8e8;
       color: #1c1e21;
     }
 
-    /* BARRE FACEBOOK */
+    /* BARRE FACEBOOK + recherche */
     .topbar {
-      background: #3b5998;
+      background: linear-gradient(to bottom, #4c69ba, #3b5998);
       color: #fff;
       padding: 8px 16px;
       font-size: 14px;
       font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
+    .topbar input[type="text"] {
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccd0d5;
+      outline: none;
+      width: 200px;
+      font-size: 13px;
+      background: #f5f6f7;
+      color: #1c1e21;
+    }
+
+    .topbar input[type="text"]:focus {
+      border-color: #1877f2;
+      box-shadow: 0 0 5px rgba(24,119,242,0.5);
+      background: #fff;
+    }
+
+    /* Layout général */
     .layout {
       max-width: 1200px;
       margin: 20px auto;
@@ -29,15 +54,16 @@
       gap: 20px;
     }
 
-    /* COLONNE GAUCHE */
+    /* Sidebar gauche */
     .sidebar {
       width: 260px;
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.8);
       backdrop-filter: blur(10px);
       border: 1px solid #cbd3e6;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 12px;
       height: fit-content;
+      box-shadow: inset 0 0 8px rgba(255,255,255,0.5);
     }
 
     .profile-box {
@@ -48,46 +74,54 @@
       width: 120px;
       height: 120px;
       object-fit: cover;
-      border: 1px solid #aab4cc;
-      background: #fff;
+      border: 2px solid #aab4cc;
+      border-radius: 10px;
+      background: linear-gradient(to bottom, #fff, #e4e9f2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
     .profile-name {
       margin-top: 10px;
       font-weight: bold;
       color: #3b5998;
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
     }
 
     .profile-link a {
       font-size: 13px;
-      color: #1877f2;
+      color: #ff0050;
       text-decoration: none;
+      font-weight: bold;
     }
 
     .profile-link a:hover {
       text-decoration: underline;
     }
 
-    /* CONTENU CENTRAL */
+    /* Contenu central */
     .container {
       flex: 1;
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
       border: 1px solid #cbd3e6;
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .header img {
       width: 100%;
       display: block;
+      border-bottom: 2px solid #ccd0d5;
+      border-radius: 0 0 8px 8px;
     }
 
     .nav {
-      background: #f5f6f7;
+      background: linear-gradient(to bottom, #f5f6f7, #e9ebee);
       border-bottom: 1px solid #ccd0d5;
       padding: 8px 12px;
       font-size: 13px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
     }
 
     .nav a {
@@ -99,6 +133,8 @@
 
     .nav a:hover {
       text-decoration: underline;
+      color: #1877f2;
+      text-shadow: 0 0 2px rgba(24,119,242,0.5);
     }
 
     table.forum {
@@ -108,7 +144,7 @@
     }
 
     table.forum th {
-      background: #e9ebee;
+      background: linear-gradient(to bottom, #e9ebee, #f5f6f7);
       text-align: left;
       padding: 8px;
       border-bottom: 1px solid #ccd0d5;
@@ -120,9 +156,10 @@
     }
 
     .category td {
-      background: #f0f2f5;
+      background: linear-gradient(to bottom, #f0f2f5, #e9ebee);
       font-weight: bold;
       color: #3b5998;
+      text-shadow: 1px 1px 1px rgba(255,255,255,0.6);
     }
 
     .video-title {
@@ -138,46 +175,45 @@
 
     table.forum a:hover {
       text-decoration: underline;
+      color: #ff0050;
     }
 
     .footer {
-      background: #f5f6f7;
+      background: linear-gradient(to bottom, #f5f6f7, #e9ebee);
       text-align: center;
       font-size: 12px;
       padding: 8px;
       color: #606770;
       border-top: 1px solid #ccd0d5;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
     }
 
     /* TikTok flottant pour mobile */
     .tiktok-mobile {
-      display: none;           /* caché par défaut */
+      display: none;           
       position: fixed;
       bottom: 15px;
       left: 50%;
       transform: translateX(-50%);
-      background: #ff0050;     /* couleur TikTok */
+      background: #ff0050;     
       color: #fff;
       padding: 10px 20px;
       border-radius: 25px;
       font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       z-index: 1000;
     }
 
-    /* Affichage uniquement sur petits écrans */
     @media (max-width: 768px) {
       .tiktok-mobile {
         display: block;
       }
 
-      /* Masquer le lien dans la sidebar */
       .profile-link {
         display: none;
       }
 
-      /* Réorganiser la layout pour mobile */
       .layout {
         flex-direction: column;
         margin: 10px;
@@ -197,9 +233,10 @@
 
 <body>
 
-  <!-- BARRE FACEBOOK -->
+  <!-- BARRE FACEBOOK + RECHERCHE -->
   <div class="topbar">
     Polnareff Land
+    <input type="text" placeholder="Rechercher...">
   </div>
 
   <div class="layout">
@@ -217,7 +254,7 @@
       </div>
     </div>
 
-    <!-- CONTENU -->
+    <!-- CONTENU CENTRAL -->
     <div class="container">
 
       <div class="header">
@@ -230,13 +267,15 @@
         <a href="#">Derniers ajouts</a>
       </div>
 
+      <!-- TABLEAU DES SITES -->
       <table class="forum">
         <tr>
           <th colspan="2">Catégories</th>
         </tr>
 
+        <!-- Catégorie VO & VF -->
         <tr class="category">
-          <td colspan="2">Sites avec VO & VF</td>
+          <td colspan="2">Sites avec VO &amp; VF</td>
         </tr>
 
         <tr>
@@ -250,10 +289,24 @@
 
         <tr>
           <td>
-            <div class="video-title">Voiranime (Atention ⚠️ - Assure toi de bien avoir un bloqueur de pubs avant d'acceder à ce site) </div>
+            <div class="video-title">Voiranime</div>
           </td>
           <td>
             <a href="https://v6.voiranime.com/page/3/" target="_blank">Accéder au site</a>
+          </td>
+        </tr>
+
+        <!-- Nouvelle catégorie VO seulement -->
+        <tr class="category">
+          <td colspan="2">Sites seulement en VO</td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="video-title">Sekai One</div>
+          </td>
+          <td>
+            <a href="https://sekai.one/" target="_blank">Accéder au site</a>
           </td>
         </tr>
       </table>
