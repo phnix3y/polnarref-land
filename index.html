@@ -4,56 +4,82 @@
   <meta charset="UTF-8" />
   <title>Polnareff Land</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
 
+  <style>
     body {
       margin: 0;
       font-family: Tahoma, Verdana, Arial, sans-serif;
       background: #cfd6e6;
       color: #000;
     }
+
     .container {
       max-width: 900px;
       margin: 20px auto;
       background: #fff;
       border: 1px solid #4a5a7a;
     }
+
     .header {
-      background: linear-gradient(#5b6ea8, #3f4f7a);
-      color: #fff;
-      padding: 10px;
-      font-weight: bold;
+      padding: 0;
     }
+
+    .header img {
+      width: 100%;
+      display: block;
+    }
+
     .nav {
       background: #e5e9f2;
       border-bottom: 1px solid #4a5a7a;
       padding: 6px 10px;
       font-size: 13px;
     }
-    .nav a { color: #1a2a6b; text-decoration: none; margin-right: 10px; }
-    .nav a:hover { text-decoration: underline; }
+
+    .nav a {
+      color: #1a2a6b;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+    }
+
     .forum {
       width: 100%;
       border-collapse: collapse;
       font-size: 14px;
     }
+
     .forum th {
       background: #d6dbea;
       border: 1px solid #4a5a7a;
       padding: 6px;
       text-align: left;
     }
+
     .forum td {
       border: 1px solid #4a5a7a;
       padding: 8px;
       vertical-align: top;
     }
+
     .category {
       background: #eef1f7;
       font-weight: bold;
     }
-    .video-title { font-weight: bold; color: #1a2a6b; }
-    .video-desc { font-size: 13px; margin-top: 4px; }
+
+    .video-title {
+      font-weight: bold;
+      color: #1a2a6b;
+    }
+
+    .video-desc {
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
     .footer {
       background: #e5e9f2;
       border-top: 1px solid #4a5a7a;
@@ -63,41 +89,56 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <div class="header">Polnareff Land</div>
+
+    <!-- BANNIÈRE -->
+    <div class="header">
+      <img src="Polnareffland.png" alt="Polnareff Land">
+    </div>
+
+    <!-- NAVIGATION -->
     <div class="nav">
       <a href="#">Accueil</a>
       <a href="#">Catégories</a>
       <a href="#">Derniers ajouts</a>
     </div>
 
+    <!-- TABLEAU STYLE FORUM -->
     <table class="forum">
       <tr>
         <th colspan="2">Catégories</th>
       </tr>
+
       <tr class="category">
-        <td colspan="2">Sites avec VO & VF</td>
+        <td colspan="2">Sites avec VO &amp; VF</td>
       </tr>
+
       <tr>
         <td width="70%">
           <div class="video-title">Anime Sama</div>
-          <div class="video-desc"></div>
         </td>
         <td width="30%">
           <a href="https://anime-sama.eu/" target="_blank">Accéder au site</a>
         </td>
       </tr>
-<td width="70%">
+
+      <tr>
+        <td width="70%">
           <div class="video-title">Voiranime</div>
-          <div class="video-desc"></div>
         </td>
         <td width="30%">
           <a href="https://v6.voiranime.com/page/3/" target="_blank">Accéder au site</a>
         </td>
       </tr>
+    </table>
 
-    <div class="footer">Site hébergé gratuitement sur GitHub Pages</div>
+    <!-- FOOTER -->
+    <div class="footer">
+      Site hébergé gratuitement sur GitHub Pages
+    </div>
+
   </div>
 </body>
 </html>
