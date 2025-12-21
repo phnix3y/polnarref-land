@@ -6,9 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
-    /* ======================== */
-    /* Style général "années 2000-2010" */
-    /* ======================== */
     body {
       margin: 0;
       font-family: Tahoma, Verdana, Arial, sans-serif;
@@ -16,37 +13,26 @@
       color: #1c1e21;
     }
 
-    /* BARRE FACEBOOK + recherche */
+    /* ===== TOPBAR ===== */
     .topbar {
-      background: linear-gradient(to bottom, #4c69ba, #3b5998);
+      background: linear-gradient(#4c69ba, #3b5998);
       color: #fff;
       padding: 8px 16px;
-      font-size: 14px;
       font-weight: bold;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,.2);
     }
 
-    .topbar input[type="text"] {
-      padding: 4px 8px;
+    .topbar input {
+      padding: 5px 8px;
       border-radius: 4px;
       border: 1px solid #ccd0d5;
-      outline: none;
-      width: 200px;
       font-size: 13px;
-      background: #f5f6f7;
-      color: #1c1e21;
     }
 
-    .topbar input[type="text"]:focus {
-      border-color: #1877f2;
-      box-shadow: 0 0 5px rgba(24,119,242,0.5);
-      background: #fff;
-    }
-
-    /* Layout général */
+    /* ===== LAYOUT ===== */
     .layout {
       max-width: 1200px;
       margin: 20px auto;
@@ -54,99 +40,98 @@
       gap: 20px;
     }
 
-    /* Sidebar gauche */
+    /* ===== SIDEBAR PC ===== */
     .sidebar {
       width: 260px;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.85);
       border: 1px solid #cbd3e6;
       border-radius: 8px;
       padding: 12px;
-      height: fit-content;
-      box-shadow: inset 0 0 8px rgba(255,255,255,0.5);
     }
 
     .profile-box {
       text-align: center;
+      margin-bottom: 15px;
     }
 
     .profile-box img {
       width: 120px;
       height: 120px;
-      object-fit: cover;
-      border: 2px solid #aab4cc;
       border-radius: 10px;
-      background: linear-gradient(to bottom, #fff, #e4e9f2);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border: 2px solid #aab4cc;
     }
 
     .profile-name {
-      margin-top: 10px;
+      margin-top: 8px;
       font-weight: bold;
       color: #3b5998;
-      text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
     }
 
     .profile-link a {
-      font-size: 13px;
       color: #ff0050;
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
+      font-size: 13px;
     }
 
-    .profile-link a:hover {
-      text-decoration: underline;
+    /* Coups de cœurs (PC) */
+    .favorites {
+      margin-top: 20px;
+      border-top: 1px solid #ccd0d5;
+      padding-top: 10px;
     }
 
-    /* Contenu central */
+    .favorites h3 {
+      font-size: 14px;
+      margin: 0 0 8px;
+      color: #3b5998;
+    }
+
+    .favorites a {
+      display: block;
+      font-size: 13px;
+      color: #1877f2;
+      text-decoration: none;
+      margin-bottom: 6px;
+    }
+
+    /* ===== CONTENU ===== */
     .container {
       flex: 1;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,.9);
       border: 1px solid #cbd3e6;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .header img {
       width: 100%;
       display: block;
-      border-bottom: 2px solid #ccd0d5;
-      border-radius: 0 0 8px 8px;
     }
 
     .nav {
-      background: linear-gradient(to bottom, #f5f6f7, #e9ebee);
-      border-bottom: 1px solid #ccd0d5;
+      background: #f5f6f7;
       padding: 8px 12px;
+      border-bottom: 1px solid #ccd0d5;
       font-size: 13px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
     }
 
     .nav a {
-      color: #365899;
       margin-right: 15px;
-      text-decoration: none;
+      color: #365899;
       font-weight: bold;
-    }
-
-    .nav a:hover {
-      text-decoration: underline;
-      color: #1877f2;
-      text-shadow: 0 0 2px rgba(24,119,242,0.5);
+      text-decoration: none;
     }
 
     table.forum {
       width: 100%;
       border-collapse: collapse;
-      font-size: 14px;
     }
 
     table.forum th {
-      background: linear-gradient(to bottom, #e9ebee, #f5f6f7);
-      text-align: left;
+      background: #e9ebee;
       padding: 8px;
+      text-align: left;
       border-bottom: 1px solid #ccd0d5;
     }
 
@@ -156,10 +141,9 @@
     }
 
     .category td {
-      background: linear-gradient(to bottom, #f0f2f5, #e9ebee);
+      background: #f0f2f5;
       font-weight: bold;
       color: #3b5998;
-      text-shadow: 1px 1px 1px rgba(255,255,255,0.6);
     }
 
     .video-title {
@@ -167,65 +151,50 @@
       color: #1877f2;
     }
 
-    table.forum a {
-      color: #1877f2;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    table.forum a:hover {
-      text-decoration: underline;
-      color: #ff0050;
-    }
-
     .footer {
-      background: linear-gradient(to bottom, #f5f6f7, #e9ebee);
       text-align: center;
       font-size: 12px;
       padding: 8px;
-      color: #606770;
+      background: #f5f6f7;
       border-top: 1px solid #ccd0d5;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
     }
 
-    /* TikTok flottant pour mobile */
-    .tiktok-mobile {
-      display: none;           
-      position: fixed;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ff0050;     
+    /* ===== MOBILE ===== */
+    .mobile-profile {
+      display: none;
+      text-align: center;
+      margin: 20px;
+    }
+
+    .mobile-profile img {
+      width: 100px;
+      border-radius: 10px;
+      border: 2px solid #aab4cc;
+    }
+
+    .mobile-profile a {
+      display: inline-block;
+      margin-top: 10px;
+      background: #ff0050;
       color: #fff;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 20px;
       text-decoration: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      z-index: 1000;
+      font-weight: bold;
     }
 
     @media (max-width: 768px) {
-      .tiktok-mobile {
-        display: block;
-      }
-
-      .profile-link {
-        display: none;
-      }
-
       .layout {
         flex-direction: column;
         margin: 10px;
       }
 
       .sidebar {
-        width: 100%;
-        margin-bottom: 20px;
+        display: none;
       }
 
-      .container {
-        width: 100%;
+      .mobile-profile {
+        display: block;
       }
     }
   </style>
@@ -233,7 +202,6 @@
 
 <body>
 
-  <!-- BARRE FACEBOOK + RECHERCHE -->
   <div class="topbar">
     Polnareff Land
     <input type="text" placeholder="Rechercher...">
@@ -241,24 +209,27 @@
 
   <div class="layout">
 
-    <!-- PROFIL GAUCHE -->
+    <!-- SIDEBAR PC -->
     <div class="sidebar">
       <div class="profile-box">
-        <img src="roronoa-bledart-logo.png" alt="Roronoa Bled'Art">
+        <img src="roronoa-bledart-logo.png">
         <div class="profile-name">roronoa.bled.art.95</div>
         <div class="profile-link">
-          <a href="https://www.tiktok.com/@roronoa.bled.art.95" target="_blank">
-            Voir mon TikTok
-          </a>
+          <a href="https://www.tiktok.com/@roronoa.bled.art.95" target="_blank">TikTok</a>
         </div>
+      </div>
+
+      <div class="favorites">
+        <h3>Nos coups de cœurs ❤️</h3>
+        <a href="https://sekai.one/" target="_blank">Sekai One</a>
+        <a href="https://anime-sama.eu/" target="_blank">Anime Sama</a>
       </div>
     </div>
 
-    <!-- CONTENU CENTRAL -->
+    <!-- CONTENU -->
     <div class="container">
-
       <div class="header">
-        <img src="Polnareffland.png" alt="Polnareff Land">
+        <img src="Polnareffland.png">
       </div>
 
       <div class="nav">
@@ -267,95 +238,26 @@
         <a href="#">Derniers ajouts</a>
       </div>
 
-      <!-- TABLEAU DES SITES -->
       <table class="forum">
-        <tr>
-          <th colspan="2">Catégories</th>
-        </tr>
+        <tr><th colspan="2">Sites avec VO &amp; VF</th></tr>
+        <tr><td class="video-title">Anime Sama</td><td><a href="https://anime-sama.eu/" target="_blank">Accéder</a></td></tr>
+        <tr><td class="video-title">Voiranime</td><td><a href="https://v6.voiranime.com/page/3/" target="_blank">Accéder</a></td></tr>
+        <tr><td class="video-title">Vostfree</td><td><a href="https://vostfree.ws/" target="_blank">Accéder</a></td></tr>
 
-        <!-- Catégorie VO & VF -->
-        <tr class="category">
-          <td colspan="2">Sites avec VO &amp; VF</td>
-        </tr>
-
-        <tr>
-          <td width="70%">
-            <div class="video-title">Anime Sama</div>
-          </td>
-          <td width="30%">
-            <a href="https://anime-sama.eu/" target="_blank">Accéder au site</a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="video-title">Voiranime</div>
-          </td>
-          <td>
-            <a href="https://v6.voiranime.com/page/3/" target="_blank">Accéder au site</a>
-          </td>
-        </tr>
-
-         <tr>
-          <td>
-            <div class="video-title">Vostfree</div>
-          </td>
-          <td>
-            <a href="https://vostfree.ws/" target="_blank">Accéder au site</a>
-          </td>
-        </tr>
-
-        <!-- Nouvelle catégorie VO seulement -->
-        <tr class="category">
-          <td colspan="2">Sites seulement en VO</td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="video-title">Sekai One</div>
-          </td>
-          <td>
-            <a href="https://sekai.one/" target="_blank">Accéder au site</a>
-          </td>
-        </tr>
+        <tr class="category"><td colspan="2">Sites seulement en VO</td></tr>
+        <tr><td class="video-title">Sekai One</td><td><a href="https://sekai.one/" target="_blank">Accéder</a></td></tr>
       </table>
 
-       <tr class="category">
-          <td colspan="2">Nos coups de coeurs ❤️</td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="video-title">Sekai One</div>
-          </td>
-          <td>
-            <a href="https://sekai.one/" target="_blank">Accéder au site</a>
-          </td>
-        </tr>
-      </table>
-      
-       <tr>
-          <td>
-            <div class="video-title">Anime Sama</div>
-          </td>
-          <td>
-            <a href="https://anime-sama.eu/" target="_blank">Accéder au site</a>
-          </td>
-        </tr>
-      </table>
-
-
-      <div class="footer">
-        Site hébergé gratuitement sur GitHub Pages
-      </div>
-
+      <div class="footer">Site hébergé gratuitement sur GitHub Pages</div>
     </div>
   </div>
 
-  <!-- Bouton TikTok flottant pour mobile -->
-  <a href="https://www.tiktok.com/@roronoa.bled.art.95" target="_blank" class="tiktok-mobile">
-    TikTok
-  </a>
+  <!-- MOBILE : PROFIL EN BAS -->
+  <div class="mobile-profile">
+    <img src="roronoa-bledart-logo.png">
+    <br>
+    <a href="https://www.tiktok.com/@roronoa.bled.art.95" target="_blank">Voir mon TikTok</a>
+  </div>
 
 </body>
 </html>
